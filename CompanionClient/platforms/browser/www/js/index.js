@@ -1,3 +1,5 @@
+
+
 function getProjectList(){
 
   $.ajax({
@@ -31,7 +33,6 @@ function getUserList(projectId){
     data: { project_id:projectId } ,
     crossDomain: true, 
     success : function(response){ 
-
       displayUserList(response);
     }, error : function(resultat, statut, erreur){
   
@@ -44,33 +45,42 @@ function getUserList(projectId){
 function displayUserList(results){
 
   var users = JSON.parse(results); // converting results to JSON object
-      display_string ="<table>";
+      display_string ="";
 
       var len = users.length
 
        for (i = 0; i <len; i+=3) { 
+        display_string += "<div class='block clear avatar'>";
           for(j=i;j<i+3;j++){
             if(j >=len){
               break;
             }
-            display_string = display_string+"<tr>";
 
-            "<a href='HomePage.html?user_id="+users[j].user_id+"' data-ajax='false'>"+
-            "<img src='img/"+users[j].photo+"'>"+
-            "</a>"
-            display_string = display_string+"<td>"
-            display_string = display_string+"<a href='HomePage.html?user_id="+users[j].user_id+"' data-ajax='false'>"+
-            "<img src='img/"+users[j].photo+"'>"+
-            "</a>";
-             display_string = display_string+"</td>";
-            display_string = display_string +"</tr>";
+            display_string += "<div class='one_third'>"
+            display_string += "    <div class='clear'><img src='../img/avatar.png'></div>"
+            // display_string += "    <div class='clear'><img src='../img/" + users[j].photo + "'></div>"
+            display_string += "</div>"
+
+            
           }
+        display_string += "</div>";
       }
           
-        
-      display_string +="</table>";
+      $("#memberList").html(display_string);
+      
 
-      alert(display_string);
-         $("#UserList").html(display_string);
+      var str = "";
+      str += "<script type='text/javascript'>";
+      str += "  $(document).ready(function(){"
+      str += "$('img').click(function(event){"
+      str += "        $(this).parent().parent().css('background-color', 'coral');"
+      str += "        $(this).parent().parent().parent().siblings().children().css('background-color', '');"
+      str += "        $(this).parent().parent().siblings().css('background-color', '');"
+      str += "        event.preventDefault();"
+      str += "      });"
+      str += "});"
+      str += "</script>"
+      $("body").append(str);
 }
+
 

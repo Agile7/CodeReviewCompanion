@@ -22,11 +22,8 @@
             getProjectList();   
 
             $("#submit_project_btn").click(function(){
-
                 var project_id = $('#projectList').val();
-         
-
-                window.location="UserLogin.html?project_id="+project_id;
+                window.location="template/memberlistofproject.html?project_id="+project_id;
 
             });
         });
