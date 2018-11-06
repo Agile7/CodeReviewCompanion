@@ -3,14 +3,14 @@ header("Access-Control-Allow-Origin: *");
 require('connection.php');
 $connection = $conn;
 
-echo getUserList();
+echo getUserInfo();
 
-function getUserList(){
+function getUserInfo(){
 	global $connection;
 	$sql = "";
-	if (isset($_GET['project_id']) && !empty($_GET['project_id'])){
-		$project_id = $_GET['project_id'];
-		$sql = "SELECT user_id, first_name, last_name, photo FROM user WHERE project_id = ".$project_id;
+	if (isset($_GET['user_id']) && !empty($_GET['user_id'])){
+		$user_id = $_GET['user_id'];
+		$sql = "SELECT * FROM user WHERE user_id = ".$user_id;
 	} else {
 		$sql = "SELECT * FROM user";
 	}
