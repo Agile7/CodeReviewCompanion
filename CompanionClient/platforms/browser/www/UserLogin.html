@@ -19,16 +19,23 @@
     <script>
         $(document).ready(function(){
 
-            getProjectList();   
+            $.urlParam = function(name){
+                var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+                return results[1] || 0;
+            }
 
-            $("#submit_project_btn").click(function(){
+            var project_id = $.urlParam('project_id');
 
-                var project_id = $('#projectList').val();
-         
+            getUserList(project_id);
+
+           /* $("#submit_project_btn").click(function(){
+
+                var project_id = $('#projectList option:selected').val();
+                alert(project_id);
 
                 window.location="UserLogin.html?project_id="+project_id;
 
-            });
+            });*/
         });
     </script>
    
@@ -37,14 +44,12 @@
 
 <body>
 
-    <div class="title" align="center">AGILESEVEN GAMIFICATION</div>   
-    <div class="" align="center" style="margin-top: 20%; margin-bottom: 5%;">
-        <label for="comment" style="font-weight: bold;">Choose your project</label>
-        <select id="projectList" align="center">
-        </select>
+    <div class="title" align="center">Hello, Please Identify Yourself :)</div>   
+    <div id="UserList">
+        
     </div>
     <div class="center">
-        <a id="submit_project_btn" class="btn inverse">Next</a>
+        <a id="submit_user_btn" class="btn inverse">Sign in</a>
     </div>
       
 </body>

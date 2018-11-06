@@ -19,16 +19,23 @@
     <script>
         $(document).ready(function(){
 
-            getProjectList();   
+            $.urlParam = function(name){
+                var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+                return results[1] || 0;
+            }
 
-            $("#submit_project_btn").click(function(){
+            var project_id = $.urlParam('project_id');
+
+            getUserList(project_id);
+
+           /* $("#submit_project_btn").click(function(){
 
                 var project_id = $('#projectList option:selected').val();
                 alert(project_id);
 
                 window.location="UserLogin.html?project_id="+project_id;
 
-            });
+            });*/
         });
     </script>
    
@@ -38,7 +45,7 @@
 <body>
 
     <div class="title" align="center">Hello, Please Identify Yourself :)</div>   
-    <div>
+    <div id="UserList">
         
     </div>
     <div class="center">
