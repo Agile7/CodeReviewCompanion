@@ -70,7 +70,7 @@ function displayUserList(results){
         
       display_string +="</table>";
 
-      alert(display_string);
+
          $("#UserList").html(display_string);
 }
 
@@ -84,7 +84,8 @@ function getUserInfo(userId){
     success : function(response){ 
       user = JSON.parse(response)[0];
 
-        $("#user_picture").html("<img src='img/"+user.photo+"/>");
+
+        $("#user_picture").html("<img src='img/"+user.photo+"'>");
         $("#user_name").html(user.first_name+" "+user.last_name);
         $("#user_gold").html(user.user_gold);
       
