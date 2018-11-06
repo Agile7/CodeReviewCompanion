@@ -1,1 +1,1 @@
-var URL ="http://localhost:8080/CodeReviewCompanion/CompanionServer";
+var URL ="http://localhost:80/CodeReviewCompanion/CompanionServer";

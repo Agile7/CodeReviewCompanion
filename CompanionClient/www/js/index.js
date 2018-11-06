@@ -74,3 +74,23 @@ function displayUserList(results){
          $("#UserList").html(display_string);
 }
 
+function getUserInfo(userId){
+
+  $.ajax({
+    url : URL+'/getUserInfo.php', 
+    type : 'GET', 
+    data: { user_id:userId } ,
+    crossDomain: true, 
+    success : function(response){ 
+      user = JSON.parse(response)[0];
+
+        $("#user_picture").html("<img src='img/"+user.photo+"/>");
+        $("#user_name").html(user.first_name+" "+user.last_name);
+        $("#user_gold").html(user.user_gold);
+      
+    }, error : function(resultat, statut, erreur){
+  
+      console.log("Error encountered. Could not retrieve details");
+    }
+  });
+};
