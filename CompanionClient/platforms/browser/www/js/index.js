@@ -54,7 +54,15 @@ function displayUserList(results){
               break;
             }
             display_string = display_string+"<tr>";
-            display_string = display_string+"<td> <img src='img/"+users[j].photo+"' alt='"+users[j].first_name+"'/> </td>";
+
+            "<a href='HomePage.html?user_id="+users[j].user_id+"' data-ajax='false'>"+
+            "<img src='img/"+users[j].photo+"'>"+
+            "</a>"
+            display_string = display_string+"<td>"
+            display_string = display_string+"<a href='HomePage.html?user_id="+users[j].user_id+"' data-ajax='false'>"+
+            "<img src='img/"+users[j].photo+"'>"+
+            "</a>";
+             display_string = display_string+"</td>";
             display_string = display_string +"</tr>";
           }
       }

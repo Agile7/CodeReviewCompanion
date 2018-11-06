@@ -28,14 +28,14 @@
 
             getUserList(project_id);
 
-           /* $("#submit_project_btn").click(function(){
+           $("img").click(function(){
 
-                var project_id = $('#projectList option:selected').val();
-                alert(project_id);
+                
+                alert(jQuery(this).attr("id"));
 
-                window.location="UserLogin.html?project_id="+project_id;
+                window.location="HomePage.html";
 
-            });*/
+            });
         });
     </script>
    
@@ -47,6 +47,10 @@
     <div class="title" align="center">Hello, Please Identify Yourself :)</div>   
     <div id="UserList">
         
+    </div>
+
+    <div>
+        <img src='img/Viloshna.jpg'/>
     </div>
     <div class="center">
         <a id="submit_user_btn" class="btn inverse">Sign in</a>
