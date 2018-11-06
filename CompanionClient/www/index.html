@@ -20,6 +20,15 @@
         $(document).ready(function(){
 
             getProjectList();   
+
+            $("#submit_project_btn").click(function(){
+
+                var project_id = $('#projectList option:selected').val();
+                alert(project_id);
+
+                window.location="UserLogin.html?project_id="+project_id;
+
+            });
         });
     </script>
    
@@ -35,7 +44,7 @@
         </select>
     </div>
     <div class="center">
-        <a id="submit_project_btn" class="btn inverse" href="javascript:;" onclick="getMemberList()">Next</a>
+        <a id="submit_project_btn" class="btn inverse">Next</a>
     </div>
       
 </body>
