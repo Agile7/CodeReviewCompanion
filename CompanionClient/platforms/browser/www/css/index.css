@@ -45,6 +45,12 @@ body {
   text-align: center;
 }
 
+.avatar div.one_third div{
+  width: 70%;
+  margin: 15%;
+  border-radius: 50%
+}
+
 /* Portrait layout (default) */
 .app {
     position:absolute;             /* position in the center of the screen */
