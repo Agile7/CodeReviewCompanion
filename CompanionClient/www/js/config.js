@@ -1,0 +1,1 @@
+var URL ="http://localhost:80/CodeReviewCompanion/CompanionClient";
