@@ -3,15 +3,17 @@ header("Access-Control-Allow-Origin: *");
 require('connection.php');
 $connection = $conn;
 
-echo getProjectList();
+echo getUserList();
 
-
-function getProjectList(){
-
+function getUserList(){
 	global $connection;
-	//building the query
-	$sql = "SELECT p.project_id, p.project_name
-			FROM project p";
+	$sql = "";
+	if (isset($_GET['project_id']) && !empty($_GET['project_id'])){
+		$project_id = $_GET['project_id'];
+		$sql = "SELECT * FROM user WHERE project_id = ".$project_id;
+	} else {
+		$sql = "SELECT * FROM user";
+	}
 
 	$result = $connection->query($sql);
 	$rows = array();
@@ -21,11 +23,10 @@ function getProjectList(){
 	    while($row = $result->fetch_assoc()) {
 	        $rows[] = $row;
 	    }
-	} 
+	}
+	
 	print json_encode($rows);
+
 }
-
-
-
 
 ?>
