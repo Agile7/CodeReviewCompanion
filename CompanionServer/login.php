@@ -1,6 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 require('connection.php');
+require('utils.php');
 $connection = $conn;
 
 echo login();
@@ -22,6 +23,13 @@ function login(){
              // GET STATS
              // get last login
              $last_login = $row['last_login'];
+
+				 // getting project name
+				 $project_id = $row['project_id'];
+				 $query_get_project_name = "SELECT * from project WHERE project_id = ".$project_id;
+				 $result_get_project_name = $connection->query($query_get_project_name);
+				 $row_get_project_name = $result_get_project_name->fetch_assoc();
+				 $row['project_name'] = $row_get_project_name['project_name'];
 
              // number of pushes
              $query_count_pushes = "SELECT * FROM code WHERE user_id = ".$user_id." AND push_date > '".$last_login."'";
@@ -78,13 +86,19 @@ function login(){
 
 				 }
 				 $row['xp_diff'] = $xp_difference;
+
+				 $row['level'] = getLevelFromXP($row['user_xp']);
+				 $row['remainder_xp'] = $row['user_xp'] - getTotalRequiredXpForLevel($row['level']);
+
    	       $rows[] = $row;
    	    }
    	}
 
    	print json_encode($rows);
 
-      //update last login
+		// updating last login
+      $query_update_last_login = "UPDATE user SET last_login = NOW() WHERE user_id = ".$user_id;
+		$connection->query($query_update_last_login);
 	}
 
 }

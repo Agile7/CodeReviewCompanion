@@ -57,7 +57,7 @@ function displayUserList(results){
             }
 
             display_string += "<div class='one_third'>"
-            display_string += "<div class='clear'><a href='HomePage.html?user_id="+users[j].user_id+"><img src='img/" + users[j].photo + "'></a></div>"
+            display_string += "<div class='clear'><a href='HomePage.html?user_id="+users[j].user_id+"''><img src='img/" + users[j].photo + "'></a></div>"
             // display_string += "    <div class='clear'><img src='../img/" + users[j].photo + "'></div>"
             display_string += "</div>"
 
@@ -85,7 +85,7 @@ function displayUserList(results){
 function getUserInfo(userId){
 
   $.ajax({
-    url : URL+'/getUserInfo.php', 
+    url : URL+'/login.php', 
     type : 'GET', 
     data: { user_id:userId } ,
     crossDomain: true, 
@@ -96,6 +96,8 @@ function getUserInfo(userId){
         $("#user_picture").html("<img src='img/"+user.photo+"'>");
         $("#user_name").html(user.first_name+" "+user.last_name);
         $("#user_gold").html(user.user_gold);
+		$("#user_project").html(user.project_name);
+		$("#user_level").html(user.level);
       
     }, error : function(resultat, statut, erreur){
   
