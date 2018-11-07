@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agile Seven</title>
+    <link href="https://fonts.googleapis.com/css?family=Megrim" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.flexslider.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-4.6.3.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/config.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/leaderboard.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    
+        <script>
+        $(document).ready(function(){
+            getWeeklyRanking();
+        });
+    </script>
+</head>
+
+<body style="background-color: antiquewhite">
+    <div class="title" align="center">EMPLOYEE OF THE WEEK</div>
+
+    <div class="block clear" id="" style="text-align: center; color: #000; margin: 5% 4% 0 4%; font-size: 90%;">
+        <p>In this challenge, each member will gain points by pushing code, review other developer's code as much as possible.
+           The rules are: <br>
+            + 100 points / 1 pushing code <br>
+            + 50 points / 1 reviewing code</p>
+    </div>
+
+    <div class="block clear" id="columnNameChallenge" style="margin-top: 10%;color: #4e88e5; font-weight: bold;">
+        <div class="block clear " style="">
+            <div class="one_quarter" style="text-align: center;">
+                <div class="clear">Rank</div>
+            </div>
+            <div class="two_quarter" style="text-align: center;">
+                <div class="clear">Name</div>
+            </div>
+            <div class="one_quarter" style="text-align: center;">
+                <div class="clear">Points</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="resultsboard_div">
+    </div>
+
+</body>
+
