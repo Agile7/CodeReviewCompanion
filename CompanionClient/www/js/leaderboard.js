@@ -30,7 +30,7 @@ function displayLeaderboard(results){
                         "<div class='clear'><img src='img/"+user.photo+"' style='width: 25%;'><span style='margin-left: 13%;''>"+user.first_name+"</span></div>"+
                         "</div>"+
                         "<div class='one_quarter' style='text-align: center; margin-top: 3%;'>"+
-                        "<div class='clear'>"+user.user_exp+"</div>"+
+                        "<div class='clear'>"+user.level+"</div>"+
                         "</div>"+
                         "</div>"+
                         "</div>"+
