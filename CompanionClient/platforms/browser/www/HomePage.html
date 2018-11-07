@@ -5,30 +5,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Agile Seven</title>
-   <link href="https://fonts.googleapis.com/css?family=Megrim" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Megrim" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/framework.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <link rel="stylesheet" type="text/css" href="css/custom.flexslider.css">
     <link rel="stylesheet" type="text/css" href="css/fontawesome-4.6.3.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <script src="js/jquery-1.7.1.min.js"></script>
     <script src="js/config.js"></script>
     <script src="js/index.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     
     <script>
-
+        $(document).ready(function(){
 
             $.urlParam = function(name){
                 var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
                 return results[1] || 0;
             }
 
-            localStorage.setItem("user_id",$.urlParam('user_id'));
-            getUserInfo( localStorage.getItem("user_id"));
+            var user_id = $.urlParam('user_id');
 
-    	
+            getUserInfo(user_id);
+
+           
+        });
     </script>
    
      
@@ -36,22 +37,48 @@
 
 <body>
 
+  <!-- <div class="title" align="center">Hello, please identify yourself :)</div> -->   
     <div class="block clear" style="">
-        <img id="backgroundImg" src="../img/bg.jpg" style="width: 100%">
-    </div> 
+        <img id="backgroundImg" src="img/bg.jpg" style="width: 100%">
+    </div>
 
     <div class="block clear avatar" style="margin-top: -18%" align="center">
         <div class="clear" style=" width: 35%; border-radius: 50%">
-            <div class="clear" id='user_picture'>gsdghbfg</div>
+            <div class="clear" id="user_picture"></div>
         </div>
     </div>
-
     <div class="block clear" align="center">
         <div class="clear title" style="margin-top: 0; margin-right: 0" align="center" id="user_name">
-            VU DINH DIEU
+        </div>
+    </div>
+    <div class="block clear" align="center" style="font-weight: bold">
+        <div class="one_half" style="" align="center">
+            <span style="float: right">Level:</span>
+        </div>
+        <div class="one_half" style="" align="center">
+            <span style="float: left" id="user_level"></span>
         </div>
     </div>
 
+    <div class="block clear" align="center" style="font-weight: bold; margin-top: 2%;">
+        <div class="one_half" style="" align="center">
+            <span style="float: right;">:</span>
+            <img src="../img/gold.png" style="width: 11%; float: right;">
+        </div>
+        <div class="one_half" style="" align="center">
+            <span style="float: left" id="user_gold"></span>
+        </div>
+    </div>
+
+    <div class="block clear" align="center" style="margin-top: 10%;">
+        <div class="one_quarter" style="" align="center">
+            PROJECT
+        </div>
+        
+        <div class="three_quarter" style="" align="center">
+            Agile7 code review platform
+        </div>
+    </div>
       
 </body>
 
