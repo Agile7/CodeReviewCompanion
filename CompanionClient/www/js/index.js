@@ -96,6 +96,8 @@ function getUserInfo(userId){
         $("#user_picture").html("<img src='img/"+user.photo+"'>");
         $("#user_name").html(user.first_name+" "+user.last_name);
         $("#user_gold").html(user.user_gold);
+		$("#user_project").html(user.project_name);
+		$("#user_level").html(user.level);
       
     }, error : function(resultat, statut, erreur){
   
