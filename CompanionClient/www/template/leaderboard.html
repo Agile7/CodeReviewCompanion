@@ -13,11 +13,35 @@
     <link rel="stylesheet" type="text/css" href="../css/fontawesome-4.6.3.min.css">
     <link rel="stylesheet" type="text/css" href="../css/index.css">
     <script src="../js/jquery-1.7.1.min.js"></script>
-    
+    <script>
+        $(document).ready(function(){
+            $("#btnMenu").click(function(){
+                $("#menuContent").slideToggle();
+            });
+        });
+    </script>
 </head>
 
 <body style="background-color: azure">
-    <div class="title" align="center">LEADERBOARD</div>
+    <div class="block clear" ><img id="btnMenu" style="float: right; width: 11%; margin: 5%;" src="../img/menu.png"></div>
+    <div class="block" id="menuContent" style="background-color: cadetblue;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    padding: 4% 4% 2% 1%;
+    border-radius: 20px;
+    margin-left: 43%;
+    margin-top: -5%;
+    margin-right: 3%;
+    border: 1px solid;
+    box-shadow: 4px 4px grey;">
+            <div class="block clear" style="color: white; margin-top: 2%;"><img src="../img/leaderboard.png" style="width: 13%;"><span style="margin-left: 7%;">Leaderboard</span></div>
+            <div class="block clear" style="color: white; margin-top: 2%;"><img src="../img/employee.png" style="width: 13%;"><span style="margin-left: 7%;">Employee of the week</span></div>
+            <div class="block clear" style="color: white; margin-top: 2%;"><img src="../img/goldicon.png" style="width: 13%;"><span style="margin-left: 7%;">Gold</span></div>
+            <div class="block clear" style="color: white; margin-top: 2%;"><img src="../img/signout.png" style="width: 13%;"><span style="margin-left: 7%;">Sign out</span></div>
+        
+    </div>
+    <div class="title" align="center" style="margin: 0">LEADERBOARD</div>
     <div class="block clear" id="columnName" style="margin-top: 10%;color: #4e88e5; font-weight: bold;">
         <div class="block clear " style="">
             <div class="one_quarter" style="text-align: center;">
