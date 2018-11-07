@@ -1,6 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 require('connection.php');
+require('utils.php');
 $connection = $conn;
 
 echo login();
@@ -85,13 +86,19 @@ function login(){
 
 				 }
 				 $row['xp_diff'] = $xp_difference;
+
+				 $row['level'] = getLevelFromXP($row['user_xp']);
+				 $row['remainder_xp'] = $row['user_xp'] - getTotalRequiredXpForLevel($row['level']);
+
    	       $rows[] = $row;
    	    }
    	}
 
    	print json_encode($rows);
 
-      //update last login
+		// updating last login
+      $query_update_last_login = "UPDATE user SET last_login = NOW() WHERE user_id = ".$user_id;
+		$connection->query($query_update_last_login);
 	}
 
 }
