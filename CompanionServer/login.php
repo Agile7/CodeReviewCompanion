@@ -23,6 +23,13 @@ function login(){
              // get last login
              $last_login = $row['last_login'];
 
+				 // getting project name
+				 $project_id = $row['project_id'];
+				 $query_get_project_name = "SELECT * from project WHERE project_id = ".$project_id;
+				 $result_get_project_name = $connection->query($query_get_project_name);
+				 $row_get_project_name = $result_get_project_name->fetch_assoc();
+				 $row['project_name'] = $row_get_project_name['project_name'];
+
              // number of pushes
              $query_count_pushes = "SELECT * FROM code WHERE user_id = ".$user_id." AND push_date > '".$last_login."'";
              $result_count_pushes = $connection->query($query_count_pushes);
