@@ -57,7 +57,7 @@ function displayUserList(results){
             }
 
             display_string += "<div class='one_third'>"
-            display_string += "    <div class='clear'><img src='../img/avatar.png'></div>"
+            display_string += "<div class='clear'><a href='HomePage.html?user_id="+users[j].user_id+"><img src='img/" + users[j].photo + "'></a></div>"
             // display_string += "    <div class='clear'><img src='../img/" + users[j].photo + "'></div>"
             display_string += "</div>"
 
@@ -66,7 +66,7 @@ function displayUserList(results){
         display_string += "</div>";
       }
           
-      $("#memberList").html(display_string);
+      $("#UserList").html(display_string);
       
       var str = "";
       str += "<script type='text/javascript'>";
@@ -75,7 +75,6 @@ function displayUserList(results){
       str += "        $(this).parent().parent().css('background-color', 'coral');"
       str += "        $(this).parent().parent().parent().siblings().children().css('background-color', '');"
       str += "        $(this).parent().parent().siblings().css('background-color', '');"
-      str += "        event.preventDefault();"
       str += "      });"
       str += "});"
       str += "</script>"
