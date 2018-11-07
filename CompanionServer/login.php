@@ -75,10 +75,10 @@ function login(){
 							}
 						}
 					 }
-					 $row['xp_diff'] = $xp_difference;
-				 }
 
-   	        $rows[] = $row;
+				 }
+				 $row['xp_diff'] = $xp_difference;
+   	       $rows[] = $row;
    	    }
    	}
 
