@@ -98,6 +98,9 @@ function getUserInfo(userId){
         $("#user_gold").html(user.user_gold);
 		$("#user_project").html(user.project_name);
 		$("#user_level").html(user.level);
+		$("#user_pushed").html(user.count_pushes);
+		$("#user_reviewed").html(user.count_reviews);
+		$("#user_xp_diff").html(user.xp_diff);
       
     }, error : function(resultat, statut, erreur){
   
