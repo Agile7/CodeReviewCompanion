@@ -25,11 +25,18 @@
                 return results[1] || 0;
             }
 
-            var user_id = $.urlParam('user_id');
 
-            localStorage.setItem("user_id",user_id);
+            if($.urlParam('login') == "new"){
+                var user_id = $.urlParam('user_id');
+                localStorage.setItem("user_id",user_id);
+                getUserInfo(user_id);
 
-            getUserInfo(user_id);
+            }
+            else{
+                displayUserInfo();
+            }
+
+            
 
             $("#btnMenu").click(function(){
                 $("#menuContent").toggle();
@@ -47,7 +54,7 @@
                 window.location.href= "index.html";
             });
             $("#linkToHomepage").click(function(){
-                window.location.href= "HomePage.html";
+                window.location.href= "HomePage.html?login='exist'";
             });
            
         });
