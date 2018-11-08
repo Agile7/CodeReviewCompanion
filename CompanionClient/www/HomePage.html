@@ -26,6 +26,8 @@
 
             var user_id = $.urlParam('user_id');
 
+            localStorage.setItem("user_id",user_id);
+
             getUserInfo(user_id);
 
            
@@ -35,7 +37,7 @@
      
 </head>
 
-<body>
+<body style="background-color: antiquewhite">
 
   <!-- <div class="title" align="center">Hello, please identify yourself :)</div> -->   
     <div class="block clear" style="">
@@ -72,13 +74,14 @@
 
     <div class="block clear" align="center" style="margin-top: 10%;">
         <div class="one_quarter" style="" align="center">
-            PROJECT
+            Project:
         </div>
         
         <div class="three_quarter" style="" align="center">
             <span style="float: left" id="user_project"></span>
         </div>
     </div>
-      
+      <a href="LeaderBoard.html"> Leaderboard</a>
+      <a href="WeeklyRank.html"> WeeklyRank</a>
 </body>
 
