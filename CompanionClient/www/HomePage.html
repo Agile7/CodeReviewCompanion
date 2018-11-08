@@ -15,6 +15,7 @@
     <script src="js/config.js"></script>
     <script src="js/index.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     <script>
         $(document).ready(function(){
@@ -24,11 +25,19 @@
                 return results[1] || 0;
             }
 
-            var user_id = $.urlParam('user_id');
 
-            localStorage.setItem("user_id",user_id);
+            if($.urlParam('login') == "new"){
+                var user_id = $.urlParam('user_id');
+                localStorage.setItem("user_id",user_id);
+                getUserInfo(user_id);
 
-            getUserInfo(user_id);
+            }
+
+            getUserInfo(localStorage.getItem("user_id"));
+
+            
+
+            
 
             $("#btnMenu").click(function(){
                 $("#menuContent").toggle();
@@ -46,7 +55,7 @@
                 window.location.href= "index.html";
             });
             $("#linkToHomepage").click(function(){
-                window.location.href= "HomePage.html";
+                window.location.href= "HomePage.html?login='exist'";
             });
            
         });
@@ -120,38 +129,35 @@
         </div>
     </div>
 	
-	<div class="block clear" align="center">
-		<div class="one_quarter" style="" align="center">
-            Number of Code Pushed Since Last Login: 
-        </div>
-        
-        <div class="three_quarter" style="" align="center">
-            <span style="float: left" id="user_pushed"></span>
-        </div>
-    
-	</div>
-	
-	<div class="block clear" align="center">
-		<div class="one_quarter" style="" align="center">
-            Number of Code Reviewed Since Last Login: 
-        </div>
-        
-        <div class="three_quarter" style="" align="center">
-            <span style="float: left" id="user_reviewed"></span>
-        </div>
-    
-	</div>
-	
-	<div class="block clear" align="center">
-		<div class="one_quarter" style="" align="center">
-            EXP Gained since Last Login: 
-        </div>
-        
-        <div class="three_quarter" style="" align="center">
-            <span style="float: left" id="user_xp_diff"></span>
-        </div>
-    
-	</div>
+    <hr style="border-top:1.5px solid darkgrey">
 
+	<div class="block clear" align="center">
+		<div class="three_quarter" style="color:blue">
+            Your Performance of This Week: 
+        </div>
+    </div>
+   
+	 <div class="block clear" align="center">
+        <div class="three_quarter" style="" >
+            <span style="font-size: 80%">Codes Pushed : </span>
+            <span id="user_pushed" style="color:green;font-size: 80%"> </span>
+        </div>
+    </div>
+
+     <div class="block clear" align="center">
+        <div class="three_quarter" style="" >
+            <span style="font-size: 80%">Codes Reviewed : </span>
+            <span id="user_reviewed" style="color:green;font-size: 80%"> </span>
+        </div>
+    </div>
+
+     <div class="block clear" align="center">
+        <div class="three_quarter" style="">
+            <span style="font-size: 80%">Exp Gained : </span>
+            <span id="user_xp_diff" style="color:green;font-size: 80%"> </span>
+        </div>
+    </div>
+	
+	
 </body>
 

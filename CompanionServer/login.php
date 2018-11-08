@@ -22,7 +22,13 @@ function login(){
    	    while($row = $result->fetch_assoc()) {
              // GET STATS
              // get last login
-             $last_login = $row['last_login'];
+             // $last_login = $row['last_login'];
+   	    	$sql_get_last_week = "SELECT * FROM user_history WHERE user_id = ".$user_id;
+   	    	$res_last_week = $connection->query($sql_get_last_week);
+   	    	$row_last_week = $res_last_week->fetch_assoc();
+   	    	$last_login = $row_last_week['last_login'];
+   	    	$row['last_week_login'] = $last_login;
+
 
 				 // getting project name
 				 $project_id = $row['project_id'];

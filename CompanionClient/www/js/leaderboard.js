@@ -34,7 +34,7 @@ function displayLeaderboard(results){
         var user_display ="";
 
         if(user.user_id ==user_id){
-          user_display = user_display+ "<hr><div class='block clear' style='margin-top: 3%'>"+
+          user_display = user_display+ "<hr style='border-top:1.5px solid darkgrey'><div class='block clear' style='margin-top: 3%'>"+
                         "<div class='block clear' style=''>";
         }
         else{
@@ -68,7 +68,7 @@ function displayLeaderboard(results){
                         "</div>"+
                         "</div>"+
                         "</div>"+
-                        "<hr>";
+                        "<hr style='border-top:1.5px solid darkgrey'>";
 
       if(user.user_id == user_id){
         $("#user_position_div").html(user_display);
@@ -118,7 +118,7 @@ function displayWeeklyBoard(results){
         }
 
         if(user.user_id == user_id){
-        user_display = user_display+ "<hr><div class='block clear' style='margin-top: 3%'>"+
+        user_display = user_display+ "<hr style='border-top:1.5px solid darkgrey'><div class='block clear' style='margin-top: 3%'>"+
                           "<div class='block clear ' style=''>";
         }
         else{
@@ -153,7 +153,7 @@ function displayWeeklyBoard(results){
                           "</div>"+
                           "</div>"+
                           "</div>"+
-                          "<hr>";
+                          "<hr style='border-top:1.5px solid darkgrey'>";
 
     if(user.user_id == user_id){
         $("#user_position_div").html(user_display);
