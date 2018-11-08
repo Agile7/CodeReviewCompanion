@@ -57,7 +57,7 @@ function displayUserList(results){
             }
 
             display_string += "<div class='one_third'>"
-            display_string += "<div class='clear'><a href='HomePage.html?user_id="+users[j].user_id+"''><img src='img/" + users[j].photo + "'></a></div>"
+            display_string += "<div class='clear'><a href='HomePage.html?user_id="+users[j].user_id+"''><img style='border-radius: 50%' src='img/" + users[j].photo + "'></a></div>"
             // display_string += "    <div class='clear'><img src='../img/" + users[j].photo + "'></div>"
             display_string += "</div>"
 
@@ -81,7 +81,6 @@ function displayUserList(results){
       $("body").append(str);
 }
 
-
 function getUserInfo(userId){
 
   $.ajax({
@@ -93,17 +92,17 @@ function getUserInfo(userId){
       user = JSON.parse(response)[0];
 
 
-        $("#user_picture").html("<img src='img/"+user.photo+"'>");
-        $("#user_name").html(user.first_name+" "+user.last_name);
-        $("#user_gold").html(user.user_gold);
+
+    $("#user_picture").html("<img style='border-radius: 50%' src='img/"+user.photo+"'>");
+    $("#user_name").html(user.first_name+" "+user.last_name);
+    $("#user_gold").html(user.user_gold);
 		$("#user_project").html(user.project_name);
 		$("#user_level").html(user.level);
 		$("#user_pushed").html("+ "+user.count_pushes);
 		$("#user_reviewed").html("+ "+user.count_reviews);
 		$("#user_xp_diff").html("+ "+user.xp_diff);
-      
+
     }, error : function(resultat, statut, erreur){
-  
       console.log("Error encountered. Could not retrieve details");
     }
   });

@@ -44,14 +44,14 @@ function displayLeaderboard(results){
         
 
         if(rank == 1){
-            user_display = user_display+ "<div class='one_quarter' style='text-align: center; margin-top: 2%; font-size: 100%; font-weight: bold;color: #ffae23;'>";
+            user_display = user_display+ "<div class='one_quarter' style='text-align: center; margin-top: 2%; font-size: 130%; font-weight: bold;color: #ffae23;'>";
         }
         else if(rank==2){
-          user_display = user_display+ "<div class='one_quarter' style='text-align: center; margin-top: 2%; font-size: 100%; font-weight: bold;color: #9eb2b2;'>";
+          user_display = user_display+ "<div class='one_quarter' style='text-align: center; margin-top: 2%; font-size: 130%; font-weight: bold;color: #9eb2b2;'>";
 
         }
         else if(rank==3){
-          user_display = user_display+ "<div class='one_quarter' style='text-align: center; margin-top: 2%; font-size: 100%; font-weight: bold;color: #7c4803;'>";
+          user_display = user_display+ "<div class='one_quarter' style='text-align: center; margin-top: 2%; font-size: 130%; font-weight: bold;color: #7c4803;'>";
 
         }
         else{
@@ -61,7 +61,7 @@ function displayLeaderboard(results){
         user_display = user_display+ "<div class='clear'>"+rank+"</div>"+
                         "</div>"+
                         "<div class='two_quarter' style=''>"+ 
-                        "<div class='clear'><img src='img/"+picture+"' onerror=\"this.src='img/generic.png'\" style='width: 20%;'><span style='margin-left: 13%;''>"+user.first_name+"</span></div>"+
+                        "<div class='clear'><img src='img/"+picture+"' onerror=\"this.src='img/generic.png'\" style='width: 20%; border-radius: 50%;'><span style='margin-left: 13%;''>"+user.first_name+"</span></div>"+
                         "</div>"+
                         "<div class='one_quarter' style='text-align: center; margin-top: 3%;'>"+
                         "<div class='clear'>"+user.level+"</div>"+
@@ -146,7 +146,7 @@ function displayWeeklyBoard(results){
         user_display = user_display+ "<div class='clear'>"+rank+"</div>"+
                           "</div>"+
                           "<div class='two_quarter' style=''> "+
-                          "<div class='clear'><img src='img/"+picture+"' style='width: 20%;'><span style='margin-left: 13%;'>"+user.first_name+"</span></div>"+
+                          "<div class='clear'><img src='img/"+picture+"' style='width: 20%;border-radius: 50%'><span style='margin-left: 13%;'>"+user.first_name+"</span></div>"+
                           "</div>"+
                           "<div class='one_quarter' style='text-align: center; margin-top: 3%;'>"+
                           "<div class='clear'>"+user.diff+"</div>"+
