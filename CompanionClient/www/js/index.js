@@ -25,7 +25,7 @@ function displayProjectList(results){
          $("#projectList").html(display_string);
 }
 
-function getUserList(projectId){
+function getUserListByProject(projectId){
 
   $.ajax({
     url : URL+'/getUserList.php', 
@@ -40,6 +40,48 @@ function getUserList(projectId){
     }
   });
 };
+
+function getUserList(){
+
+  $.ajax({
+    url : URL+'/getUserList.php', 
+    type : 'GET', 
+    crossDomain: true, 
+    success : function(response){ 
+      displayUserDropDown(response);
+    }, error : function(resultat, statut, erreur){
+  
+      console.log("Error encountered. Could not retrieve details");
+    }
+  });
+};
+
+function displayUserDropDown(results){
+  user_id = localStorage.getItem("user_id");
+  alert(user_id);
+    var users = JSON.parse(results); // converting results to JSON object
+      display_string ="<select id='userList' align='center' style='height: 70px;"+
+                      "width: 400px;"+
+                      "border: 2px solid #4e88e5;"+
+                      "border-radius: 10px;"+
+                      "margin-bottom: 10%;"+
+                      "margin-top: 5%;"+
+                      "color: #4e88e5;"+
+                      "text-align: center;'>";
+
+      users.forEach(function(user) {
+            if(user.user_id != user_id){
+                display_string += " <option value='"+user.user_id+"'>"+user.first_name+ " "+user.last_name+"</option>";
+            }
+          });
+
+      display_string += "</select>";
+      alert(display_string);
+         $("#userListDropDown").html(display_string);
+
+
+}
+
 
 
 function displayUserList(results){
@@ -111,5 +153,24 @@ function displayUserInfo(){
     $("#user_xp_diff").html("+ "+user.xp_diff);
 
     
+};
+
+
+function shareGold(_from,_to,_amount){
+
+  $.ajax({
+    url : URL+'/gold.php', 
+    type : 'GET', 
+    data: {from:_from,
+            to:_to,
+            amount:_amount} ,
+    crossDomain: true, 
+    success : function(response){ 
+      alert("Your gold has been transferred");
+      $("#currGold").html(Number($("#currGold").html())-Number(_amount));
+    }, error : function(resultat, statut, erreur){
+      console.log("Error encountered. Could not retrieve details");
+    }
+  });
 };
 
