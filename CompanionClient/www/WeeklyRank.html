@@ -20,12 +20,52 @@
         <script>
         $(document).ready(function(){
             getWeeklyRanking();
+            $("#btnMenu").click(function(){
+                $("#menuContent").toggle();
+            });
+            $("#linkToLeaderBoard").click(function(){
+                window.location.href= "LeaderBoard.html";
+            });
+            $("#linkToChallenge").click(function(){
+                window.location.href= "WeeklyRank.html";
+            });
+            $("#linkToGold").click(function(){
+                window.location.href= "gold.html";
+            });
+            $("#linkToSignout").click(function(){
+                window.location.href= "index.html";
+            });
+            $("#linkToHomepage").click(function(){
+                window.location.href= "HomePage.html";
+            });
+           
         });
     </script>
 </head>
 
 <body style="background-color: antiquewhite">
-    <div class="title" align="center">EMPLOYEE OF THE WEEK</div>
+    <div class="block clear" ><img id="btnMenu" style="float: right; width: 11%; margin: 5%;" src="../img/menu.png"></div>
+    <div class="block" id="menuContent" 
+    style="background-color: burlywood;
+    position: absolute;
+    z-index: 999;
+    padding: 4% 4% 2% 1%;
+    border-radius: 20px;
+    margin-left: 40%;
+    margin-top: -5%;
+    margin-right: 6%;
+    border: 1px solid;
+    box-shadow: grey 4px 4px;
+    display: none;">
+            <div class="block clear" style="color: black; margin-top: 2%;" id="linkToHomepage"><img src="../img/homepage.png" style="width: 13%;"><span style="margin-left: 7%;">Homepage</span></div>
+            <div class="block clear" style="color: black; margin-top: 2%;" id="linkToLeaderBoard"><img src="../img/leaderboard.png" style="width: 13%;"><span style="margin-left: 7%;">Leaderboard</span></div>
+            <div class="block clear" style="color: black; margin-top: 2%;"  id="linkToChallenge"><img src="../img/employee.png" style="width: 13%;"><span style="margin-left: 7%;">Employee of the week</span></div>
+            <div class="block clear" style="color: black; margin-top: 2%;"  id="linkToGold"><img src="../img/goldicon.png" style="width: 13%;"><span style="margin-left: 7%;">Gold</span></div>
+            <div class="block clear" style="color: black; margin-top: 2%;" id="linkToSignout"><img src="../img/signout.png" style="width: 13%;"><span style="margin-left: 7%;">Sign out</span></div>
+        
+    </div>
+
+    <div class="title" align="center" style="margin-top: 0;">EMPLOYEE OF THE WEEK</div>
 
     <div class="block clear" id="" style="text-align: center; color: #000; margin: 5% 4% 0 4%; font-size: 90%;">
         <p>In this challenge, each member will gain points by pushing code, review other developer's code as much as possible.
