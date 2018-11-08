@@ -16,7 +16,19 @@
     <script>
         $(document).ready(function(){
             $("#btnMenu").click(function(){
-                $("#menuContent").slideToggle();
+                $("#menuContent").toggle();
+            });
+            $("#linkToLeaderBoard").click(function(){
+                window.location.href= "leaderboard.html";
+            });
+            $("#linkToChallenge").click(function(){
+                window.location.href= "challenge.html";
+            });
+            $("#linkToGold").click(function(){
+                window.location.href= "gold.html";
+            });
+            $("#linkToSignout").click(function(){
+                window.location.href= "index.html";
             });
         });
     </script>
@@ -24,21 +36,22 @@
 
 <body style="background-color: azure">
     <div class="block clear" ><img id="btnMenu" style="float: right; width: 11%; margin: 5%;" src="../img/menu.png"></div>
-    <div class="block" id="menuContent" style="background-color: cadetblue;
-    display: none;
+    <div class="block" id="menuContent" 
+    style="background-color: cadetblue;
     position: absolute;
     z-index: 999;
     padding: 4% 4% 2% 1%;
     border-radius: 20px;
-    margin-left: 43%;
+    margin-left: 40%;
     margin-top: -5%;
-    margin-right: 3%;
+    margin-right: 6%;
     border: 1px solid;
-    box-shadow: 4px 4px grey;">
-            <div class="block clear" style="color: white; margin-top: 2%;"><img src="../img/leaderboard.png" style="width: 13%;"><span style="margin-left: 7%;">Leaderboard</span></div>
-            <div class="block clear" style="color: white; margin-top: 2%;"><img src="../img/employee.png" style="width: 13%;"><span style="margin-left: 7%;">Employee of the week</span></div>
-            <div class="block clear" style="color: white; margin-top: 2%;"><img src="../img/goldicon.png" style="width: 13%;"><span style="margin-left: 7%;">Gold</span></div>
-            <div class="block clear" style="color: white; margin-top: 2%;"><img src="../img/signout.png" style="width: 13%;"><span style="margin-left: 7%;">Sign out</span></div>
+    box-shadow: grey 4px 4px;
+    display: none;">
+            <div class="block clear" style="color: white; margin-top: 2%;" id="linkToLeaderBoard"><img src="../img/leaderboard.png" style="width: 13%;"><span style="margin-left: 7%;">Leaderboard</span></div>
+            <div class="block clear" style="color: white; margin-top: 2%;"  id="linkToChallenge"><img src="../img/employee.png" style="width: 13%;"><span style="margin-left: 7%;">Employee of the week</span></div>
+            <div class="block clear" style="color: white; margin-top: 2%;"  id="linkToGold"><img src="../img/goldicon.png" style="width: 13%;"><span style="margin-left: 7%;">Gold</span></div>
+            <div class="block clear" style="color: white; margin-top: 2%;" id="linkToSignout"><img src="../img/signout.png" style="width: 13%;"><span style="margin-left: 7%;">Sign out</span></div>
         
     </div>
     <div class="title" align="center" style="margin: 0">LEADERBOARD</div>
