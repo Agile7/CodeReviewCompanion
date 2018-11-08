@@ -15,6 +15,7 @@
     <script src="js/config.js"></script>
     <script src="js/index.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     <script>
         $(document).ready(function(){
@@ -82,38 +83,35 @@
         </div>
     </div>
 	
-	<div class="block clear" align="center">
-		<div class="one_quarter" style="" align="center">
-            Number of Code Pushed Since Last Login: 
-        </div>
-        
-        <div class="three_quarter" style="" align="center">
-            <span style="float: left" id="user_pushed"></span>
-        </div>
-    
-	</div>
-	
-	<div class="block clear" align="center">
-		<div class="one_quarter" style="" align="center">
-            Number of Code Reviewed Since Last Login: 
-        </div>
-        
-        <div class="three_quarter" style="" align="center">
-            <span style="float: left" id="user_reviewed"></span>
-        </div>
-    
-	</div>
-	
-	<div class="block clear" align="center">
-		<div class="one_quarter" style="" align="center">
-            EXP Gained since Last Login: 
-        </div>
-        
-        <div class="three_quarter" style="" align="center">
-            <span style="float: left" id="user_xp_diff"></span>
-        </div>
-    
-	</div>
+    <hr style="border-top:1.5px solid darkgrey">
 
+	<div class="block clear">
+		<div class="three_quarter" style="color:blue">
+            Since Last Login: 
+        </div>
+    </div>
+   
+	 <div class="block clear">
+        <div class="three_quarter" style="" >
+            <span style="font-size: 80%">Codes Pushed : </span>
+            <span id="user_pushed" style="color:green;font-size: 80%"> </span>
+        </div>
+    </div>
+
+     <div class="block clear">
+        <div class="three_quarter" style="" >
+            <span style="font-size: 80%">Codes Reviewed : </span>
+            <span id="user_reviewed" style="color:green;font-size: 80%"> </span>
+        </div>
+    </div>
+
+     <div class="block clear">
+        <div class="three_quarter" style="">
+            <span style="font-size: 80%">Exp Gained : </span>
+            <span id="user_xp_diff" style="color:green;font-size: 80%"> </span>
+        </div>
+    </div>
+	
+	
 </body>
 
