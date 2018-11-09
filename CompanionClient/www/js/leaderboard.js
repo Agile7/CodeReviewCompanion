@@ -146,7 +146,7 @@ function displayWeeklyBoard(results){
         user_display = user_display+ "<div class='clear'>"+rank+"</div>"+
                           "</div>"+
                           "<div class='two_quarter' style=''> "+
-                          "<div class='clear'><img src='img/"+picture+"' style='width: 20%;border-radius: 50%'><span style='margin-left: 13%;'>"+user.first_name+"</span></div>"+
+                          "<div class='clear'><img src='img/"+picture+"' onerror=\"this.src='img/generic.png'\" style='width: 20%;border-radius: 50%'><span style='margin-left: 13%;'>"+user.first_name+"</span></div>"+
                           "</div>"+
                           "<div class='one_quarter' style='text-align: center; margin-top: 3%;'>"+
                           "<div class='clear'>"+user.diff+"</div>"+

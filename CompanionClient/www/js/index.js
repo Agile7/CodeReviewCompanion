@@ -58,7 +58,6 @@ function getUserList(){
 
 function displayUserDropDown(results){
   user_id = localStorage.getItem("user_id");
-  alert(user_id);
     var users = JSON.parse(results); // converting results to JSON object
       display_string ="<select id='userList' align='center' style='height: 70px;"+
                       "width: 400px;"+
@@ -76,8 +75,8 @@ function displayUserDropDown(results){
           });
 
       display_string += "</select>";
-      alert(display_string);
-         $("#userListDropDown").html(display_string);
+
+      $("#userListDropDown").html(display_string);
 
 
 }
@@ -99,7 +98,7 @@ function displayUserList(results){
             }
 
             display_string += "<div class='one_third'>"
-            display_string += "<div class='clear'><a href='HomePage.html?login=new&user_id="+users[j].user_id+"''><img style='border-radius: 50%' src='img/" + users[j].photo + "'></a></div>"
+            display_string += "<div class='clear'><a href='HomePage.html?login=new&user_id="+users[j].user_id+"''><img style='border-radius: 50%' src='img/" + users[j].photo + "' onerror=\"this.src='img/generic.png'\"></a></div>"
             // display_string += "    <div class='clear'><img src='../img/" + users[j].photo + "'></div>"
             display_string += "</div>"
 
@@ -143,9 +142,10 @@ function getUserInfo(userId){
 function displayUserInfo(){
     user = JSON.parse(localStorage.getItem("user_details"))[0];
 
-    $("#user_picture").html("<img style='border-radius: 50%' src='img/"+user.photo+"'>");
+    $("#user_picture").html("<img style='border-radius: 50%' src='img/"+user.photo+"' onerror=\"this.src='img/generic.png'\">");
     $("#user_name").html(user.first_name+" "+user.last_name);
     $("#user_gold").html(user.user_gold);
+    localStorage.setItem("user_gold",user.user_gold);
     $("#user_project").html(user.project_name);
     $("#user_level").html(user.level);
     $("#user_pushed").html("+ "+user.count_pushes);
@@ -167,7 +167,10 @@ function shareGold(_from,_to,_amount){
     crossDomain: true, 
     success : function(response){ 
       alert("Your gold has been transferred");
-      $("#currGold").html(Number($("#currGold").html())-Number(_amount));
+      curr_gold =localStorage.getItem("user_gold");
+      curr_gold= Number(curr_gold) - Number(_amount);
+      localStorage.setItem("user_gold",curr_gold);
+      $("#currGold").html(curr_gold);
     }, error : function(resultat, statut, erreur){
       console.log("Error encountered. Could not retrieve details");
     }

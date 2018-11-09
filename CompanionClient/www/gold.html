@@ -19,14 +19,12 @@
     <script>
         $(document).ready(function(){
 
-             user = JSON.parse(localStorage.getItem("user_details"))[0];
-             $("#currGold").html(user.user_gold);
-            
-
             getUserList();
 
+            $("#currGold").html(localStorage.getItem("user_gold"));
+
             $("#sharegold").click(function(){
-                if(Number($("#amount").val())>Number($("#currGold").html())){
+                if(Number($("#amount").val())>Number(localStorage.getItem("user_gold"))){
                     alert("The amount should be less or equal to your number of gold coins");
                 }
                 else if(Number($("#amount").val())<1){
@@ -34,13 +32,29 @@
                 }
                 else{
                     shareGold(localStorage.getItem("user_id"),$("#userList").val(),$("#amount").val() );
-
-
                 }
-
-                
-
             });
+
+            $("#btnMenu").click(function(){
+                $("#menuContent").toggle();
+            });
+            $("#linkToLeaderBoard").click(function(){
+                window.location.href= "LeaderBoard.html";
+            });
+            $("#linkToChallenge").click(function(){
+                window.location.href= "WeeklyRank.html";
+            });
+            $("#linkToGold").click(function(){
+                window.location.href= "gold.html";
+            });
+            $("#linkToSignout").click(function(){
+                window.location.href= "index.html";
+            });
+            $("#linkToHomepage").click(function(){
+                window.location.href= "HomePage.html?login='exist'";
+            });
+           
+        
 
 
         });
@@ -48,7 +62,46 @@
     
 </head>
 
-<body>
+<body style="background-color: antiquewhite">
+    <div class="block clear" ><img id="btnMenu" style="float: right; width: 11%; margin: 5%; position: absolute; margin-left: 85%; margin-top: 3%;" src="../img/menu.png"></div>
+    <div class="block" id="menuContent" 
+    style="background-color: burlywood;
+    position: absolute;
+    z-index: 999;
+    padding: 4% 4% 2% 1%;
+    border-radius: 20px;
+    margin-left: 40%;
+    margin-top: 15%;
+    margin-right: 6%;
+    border: 1px solid;
+    box-shadow: grey 4px 4px;
+    display: none;">
+            <div class="block clear" style="color: black; margin-top: 2%;" id="linkToHomepage">
+                <img src="../img/homepage.png" style="width: 13%;">
+                <span style="margin-left: 7%;">Homepage</span>
+            </div>
+
+            <div class="block clear" style="color: black; margin-top: 2%;" id="linkToLeaderBoard">
+                <img src="../img/leaderboard.png" style="width: 13%;">
+                <span style="margin-left: 7%;">Leaderboard</span>
+            </div>
+
+            <div class="block clear" style="color: black; margin-top: 2%;"  id="linkToChallenge">
+                <img src="../img/employee.png" style="width: 13%;">
+                <span style="margin-left: 7%;">Employee of the week</span>
+            </div>
+
+            <div class="block clear" style="color: black; margin-top: 2%;"  id="linkToGold">
+                <img src="../img/goldicon.png" style="width: 13%;">
+                <span style="margin-left: 7%;">Gold</span>
+            </div>
+            
+            <div class="block clear" style="color: black; margin-top: 2%;" id="linkToSignout">
+                <img src="../img/signout.png" style="width: 13%;">
+                <span style="margin-left: 7%;">Sign out</span>
+            </div>
+    </div>
+
     <div class="block clear" align="center">
         <div class="clear title" style="" align="center">
             <span style="text-transform: none;">Your current gold:</span><span id="currGold" style="margin-left: 3%"></span>
@@ -61,11 +114,11 @@
     </div>
 
     <div class="block clear" id="" style="text-align: center; color: #000; margin: 5% 4% 0 4%; font-size: 90%;">
-        <p>Sharing gold must be less than your current gold amount!</p>
+        <p>The amount must be less than your current gold coins!</p>
     </div>
 
     <div class="block clear" align="center">
-        <span style="font-weight: bold;">Sharing amount:</span>
+        <span style="font-weight: bold;">Number of coins:</span>
     </div>
     <div class="block clear" align="center">
         <input type="text" name="amount" id="amount" value="" style="height: 70px;
