@@ -59,8 +59,8 @@ function getUserList(){
 function displayUserDropDown(results){
   user_id = localStorage.getItem("user_id");
     var users = JSON.parse(results); // converting results to JSON object
-      display_string ="<select id='userList' align='center' style='height: 70px;"+
-                      "width: 400px;"+
+      display_string ="<select id='userList' align='center' style='height: 60px;"+
+                      "width: 80%;"+
                       "border: 2px solid #4e88e5;"+
                       "border-radius: 10px;"+
                       "margin-bottom: 10%;"+
@@ -166,7 +166,8 @@ function shareGold(_from,_to,_amount){
             amount:_amount} ,
     crossDomain: true, 
     success : function(response){ 
-      alert("Your gold has been transferred");
+      $("#notiText").html("Your gold has been transferred");
+      $("#notiText").css('color', 'green');
       curr_gold =localStorage.getItem("user_gold");
       curr_gold= Number(curr_gold) - Number(_amount);
       localStorage.setItem("user_gold",curr_gold);

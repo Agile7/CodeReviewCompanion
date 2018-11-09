@@ -25,10 +25,12 @@
 
             $("#sharegold").click(function(){
                 if(Number($("#amount").val())>Number(localStorage.getItem("user_gold"))){
-                    alert("The amount should be less or equal to your number of gold coins");
+                    $("#notiText").html("The amount should be less or equal to your number of gold coins");
+                    $("#notiText").css('color', 'red');
                 }
                 else if(Number($("#amount").val())<1){
-                    alert("Please enter an amount greater than 0");
+                    $("#notiText").html("Please enter an amount greater than 0");
+                    $("#notiText").css('color', 'red');
                 }
                 else{
                     shareGold(localStorage.getItem("user_id"),$("#userList").val(),$("#amount").val() );
@@ -121,14 +123,17 @@
         <span style="font-weight: bold;">Number of coins:</span>
     </div>
     <div class="block clear" align="center">
-        <input type="text" name="amount" id="amount" value="" style="height: 70px;
-            width: 400px;
+        <input type="text" name="amount" id="amount" value="" style="height: 60px;
+            width: 80%;
             border: 2px solid #4e88e5;
             border-radius: 10px;
-            margin-bottom: 10%;
+            margin-bottom: 2%;
             margin-top: 5%;
             color: #4e88e5;
             text-align: center;">
+    </div>
+
+    <div class="block clear" id='notiText' align="center" style="text-align: center;">
     </div>
 
     <div class="center">

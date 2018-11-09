@@ -34,9 +34,14 @@ body {
     width:100%;
 }
 
+
+#projectList option, #userList option{
+    font-size: 70%;
+  }
+
 #projectList {
-  height: 70px;
-  width: 400px;
+  height: 60px;
+  width: 80%;
   border: 2px solid #4e88e5;
   border-radius: 10px;
   margin-bottom: 10%;
@@ -157,7 +162,7 @@ h1 {
   text-align: center;
   margin-top: 20%;
   margin-right: 20px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   text-shadow: 0 1px 2px rgba(black,.15);
   font-family: 'Lato', cursive;
   font-size: 170%;
